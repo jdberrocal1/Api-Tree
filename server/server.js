@@ -4,6 +4,7 @@
 var express = require('express');
 var app = express();
 var api = require('./api/api');
+var err = require('./middleware/errorMiddleware');
 var config = require('./config/config');
 var logger = require('./util/logger');
 
@@ -17,17 +18,6 @@ require('./middleware/appMiddleware')(app);
 // setup the api
 app.use('/api', api);
 // set up global error handling
-
-app.use(function(err, req, res, next) {
-    // if error thrown from jwt validation check
-    if (err.name === 'UnauthorizedError') {
-        res.status(401).send('Invalid token');
-        return;
-    }
-
-    logger.error(err.stack);
-    res.status(500).send('Oops');
-});
-
+app.use(err());
 // export the app for testing
 module.exports = app;

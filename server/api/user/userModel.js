@@ -10,6 +10,10 @@ var UserSchema = new Schema({
     type:String,
     unique:true
   },
+  password:{
+    type:String,
+    required:true
+  },
   telephone:{
     type:String,
     required:true
