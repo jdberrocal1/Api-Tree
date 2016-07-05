@@ -1,4 +1,4 @@
-var messages = require('../utils/errorMessages');
+var messages = require('../util/errorMessages');
 
 module.exports = function() {
     return function(err, req, res, next){
