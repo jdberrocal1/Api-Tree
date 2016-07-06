@@ -28,9 +28,20 @@ exports.paramsOwnerId = function(req, res, next, ownerId ) {
       });
 };
 
-exports.get = function(req, res, next) {
+exports.getByOwnerId = function(req, res, next) {
     var lands = req.lands;
     res.json(lands);
+};
+
+exports.get = function(req, res, next) {
+    Land.find({})
+    .populate('owner')
+    .exec()
+        .then(function(lands){
+            res.json(lands);
+        }),function(err){
+            next(err);
+        };
 };
 
 exports.getOne = function(req, res, next) {

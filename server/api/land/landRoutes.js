@@ -6,14 +6,15 @@ router.param('id', controller.paramsId);
 router.param('ownerId', controller.paramsOwnerId);
 
 router.route('/')
-  .post(controller.post);
+    .get(controller.get)
+    .post(controller.post);
 
-  router.route('/:ownerId')
-    .get(controller.get);
+ router.route('/:ownerId')
+    .get(controller.getByOwnerId);
 
 router.route('/:id')
-  .get(controller.getOne)
-  .put(controller.put)
-  .delete(controller.delete);
+    .get(controller.getOne)
+    .put(controller.put)
+    .delete(controller.delete);
 
 module.exports=router;

@@ -17,6 +17,8 @@ exports.params = function(req, res, next, id) {
 
 exports.get = function(req, res, next) {
   User.find({})
+      .populate("lands")
+      .exec()
     .then(function(users){
       res.json(users);
     }, function(err){
