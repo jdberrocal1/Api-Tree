@@ -19,11 +19,11 @@
   "homepage": "https://github.com/jdberrocal1/Api-Tree#readme",
   "dependencies": {
     "body-parser": "^1.13.2",
+    "colors": "^1.1.2",
     "express": "^4.13.1",
     "lodash": "^3.10.0",
-    "mongoose": "^4.4.14",
-    "morgan": "^1.6.1",
-    "colors": "^1.1.2"
+    "mongoose": "^4.5.3",
+    "morgan": "^1.6.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
