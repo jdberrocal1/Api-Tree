@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-var User = require('../user/userModel');
-var ObjectId = require('mongoose').Types.ObjectId;
+//var User = require('../user/userModel');
+//var ObjectId = require('mongoose').Types.ObjectId;
 var Schema = mongoose.Schema;
 
 var LandSchema = new Schema({
@@ -30,7 +30,7 @@ var LandSchema = new Schema({
     }
 });
 
-LandSchema.post('save',function (doc,next){
+/*LandSchema.post('save',function (doc,next){
     var userObjectId = new ObjectId(this._doc.owner.toString());
     var landObjectId = new ObjectId(this._id.toString());
     User.findOne( {"_id": userObjectId}, function (err, user){
@@ -47,5 +47,5 @@ LandSchema.post('save',function (doc,next){
     });
     next();
 });
-
+*/
 module.exports = mongoose.model('land',LandSchema);
